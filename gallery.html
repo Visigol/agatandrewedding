@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - André & Agata's Wedding</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            text-align: center;
+            padding: 1rem 0;
+            background: #f9f9f9;
+        }
+        header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #444;
+        }
+        nav {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            color: #F2C94C;
+            border-bottom: 2px solid #333;
+        }
+        .gallery-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container {
+            text-align: center;
+            margin: 2rem;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #f9f9f9;
+        }
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                margin-bottom: 1rem;
+            }
+            nav {
+                display: none;
+            }
+        }
+        @media (min-width: 601px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        }
+
+        async function loadGallery() {
+            const sheetUrl = "https://docs.google.com/spreadsheets/d/1GTVLv770_HgMfeqkqkZ12CDoDlOZWy-tRjijW-5z79w/edit?resourcekey=&gid=2006088435#gid=2006088435"; // Replace with your published Google Sheet URL
+            const response = await fetch(sheetUrl);
+            const data = await response.text();
+            const rows = data.split("\n").slice(1); // Skip header row
+
+            const galleryContainer = document.querySelector('.gallery-container');
+            galleryContainer.innerHTML = ''; // Clear existing images
+
+            rows.forEach(row => {
+                const [fileName, imageUrl] = row.split(',');
+                if (imageUrl) {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = fileName;
+                    galleryContainer.appendChild(img);
+                }
+            });
+        }
+
+        // Load the gallery on page load
+        document.addEventListener('DOMContentLoaded', loadGallery);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Gallery</h1>
+        <h2>Join us for our special day</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="events.html">Events</a>
+        <a href="party.html">Wedding Party</a>
+        <a href="rsvp.html">RSVP</a>
+    </nav>
+    <div class="form-container">
+        <h3>Upload Your Photos</h3>
+        <iframe src="YOUR_GOOGLE_FORM_URL"></iframe> <!-- Replace with your Google Form URL -->
+    </div>
+    <div class="gallery-container">
+        <!-- Photos will be dynamically loaded here -->
+    </div>
+    <footer>
+        <p>&copy; 2025 Agata & André. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
