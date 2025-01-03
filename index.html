@@ -40,9 +40,18 @@
             text-align: center;
             margin: 1rem 0;
             flex-shrink: 0;
+            display: none;
+            flex-direction: column;
+            background: #f9f9f9;
+            padding: 1rem;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #ddd;
         }
         nav a {
-            margin: 0 1rem;
+            margin: 0.5rem 0;
             text-decoration: none;
             color: #444;
             font-weight: bold;
@@ -85,20 +94,6 @@
 
         /* Responsive styles */
         @media (max-width: 600px) {
-            nav ul {
-                flex-direction: row; /* Keeps menu horizontal */
-                align-items: center;
-                justify-content: center;
-            }
-
-            .hero img {
-                width: 80%; /* Reduce the image size on smaller screens */
-            }
-
-            .hero p {
-                font-size: 1rem; /* Smaller text for mobile */
-            }
-
             .menu-toggle {
                 display: flex;
                 justify-content: center;
@@ -110,9 +105,17 @@
                 border: 1px solid #ddd;
                 border-radius: 5px;
             }
+            .hero img {
+                max-width: 35%; /* Keep image at least 35% size */
+            }
         }
 
         @media (min-width: 601px) {
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
             .menu-toggle {
                 display: none;
             }
@@ -122,7 +125,7 @@
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
         }
     </script>
 </head>
@@ -149,4 +152,3 @@
     </footer>
 </body>
 </html>
-
