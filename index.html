@@ -51,7 +51,7 @@
             border-top: 1px solid #ddd;
         }
         nav a {
-            margin: 0.5rem 1.5rem; /* Add more spacing between tabs */
+            margin: 0.5rem 1.5rem; /* Spacing for vertical menu */
             text-decoration: none;
             color: #444;
             font-weight: bold;
@@ -115,9 +115,13 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
+                gap: 2rem; /* Add spacing between tabs for horizontal menu */
             }
             .menu-toggle {
                 display: none;
+            }
+            nav a {
+                margin: 0; /* Remove extra margin in horizontal menu */
             }
         }
     </style>
@@ -151,3 +155,4 @@
     </footer>
 </body>
 </html>
+
