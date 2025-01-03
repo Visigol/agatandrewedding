@@ -19,6 +19,8 @@
             text-align: center;
             padding: 1rem 0;
             background: #f9f9f9;
+            position: relative;
+            z-index: 1001; /* Ensure header stays on top */
         }
         header h1 {
             font-family: 'Great Vibes', cursive;
@@ -32,7 +34,7 @@
             background: #f9f9f9;
             padding: 1rem 0;
             position: absolute;
-            top: 60px;
+            top: 60px; /* Prevent overlapping header */
             left: 0;
             width: 100%;
             z-index: 1000;
@@ -126,4 +128,3 @@
     </footer>
 </body>
 </html>
-
