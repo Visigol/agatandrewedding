@@ -26,11 +26,20 @@
             color: #444;
         }
         nav {
+            display: none; /* Hide by default for mobile */
+            flex-direction: column;
             text-align: center;
-            margin: 1rem 0;
+            background: #f9f9f9;
+            padding: 1rem 0;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
         nav a {
-            margin: 0 1rem;
+            display: block;
+            margin: 0.5rem 0;
             text-decoration: none;
             color: #444;
             font-weight: bold;
@@ -70,17 +79,15 @@
             padding: 1rem 0;
             background: #f9f9f9;
         }
-        @media (max-width: 600px) {
-            .menu-toggle {
-                display: block;
-                cursor: pointer;
-                margin-bottom: 1rem;
-            }
-            nav {
-                display: none;
-            }
-        }
         @media (min-width: 601px) {
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                position: static;
+                padding: 0;
+                background: none;
+            }
             .menu-toggle {
                 display: none;
             }
@@ -89,31 +96,9 @@
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            const isVisible = nav.style.display === 'block';
+            nav.style.display = isVisible ? 'none' : 'block';
         }
-
-        async function loadGallery() {
-            const sheetUrl = "https://docs.google.com/spreadsheets/d/1GTVLv770_HgMfeqkqkZ12CDoDlOZWy-tRjijW-5z79w/edit?resourcekey=&gid=2006088435#gid=2006088435"; // Replace with your published Google Sheet URL
-            const response = await fetch(sheetUrl);
-            const data = await response.text();
-            const rows = data.split("\n").slice(1); // Skip header row
-
-            const galleryContainer = document.querySelector('.gallery-container');
-            galleryContainer.innerHTML = ''; // Clear existing images
-
-            rows.forEach(row => {
-                const [fileName, imageUrl] = row.split(',');
-                if (imageUrl) {
-                    const img = document.createElement('img');
-                    img.src = imageUrl;
-                    img.alt = fileName;
-                    galleryContainer.appendChild(img);
-                }
-            });
-        }
-
-        // Load the gallery on page load
-        document.addEventListener('DOMContentLoaded', loadGallery);
     </script>
 </head>
 <body>
@@ -131,7 +116,7 @@
     </nav>
     <div class="form-container">
         <h3>Upload Your Photos</h3>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx1_vCZx3umMhtdg9fdbbRrCcrEQZSVpbxLY5_jbjGbFVyFg/viewform"></iframe> <!-- Replace with your Google Form URL -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx1_vCZx3umMhtdg9fdbbRrCcrEQZSVpbxLY5_jbjGbFVyFg/viewform"></iframe>
     </div>
     <div class="gallery-container">
         <!-- Photos will be dynamically loaded here -->
@@ -141,3 +126,4 @@
     </footer>
 </body>
 </html>
+
