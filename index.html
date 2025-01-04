@@ -12,7 +12,6 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -37,14 +36,21 @@
             color: #666;
             margin-top: 0.5rem;
         }
+        .menu-toggle {
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            margin-top: 0.5rem;
+            z-index: 1002;
+        }
         .mute-icon {
             position: absolute;
             top: 1rem;
-            right: 2rem; /* Move away from the menu button */
+            right: 1rem;
             width: 30px;
             height: 30px;
             cursor: pointer;
-            z-index: 1002; /* Ensure icon is above other elements */
+            z-index: 1003;
         }
         nav {
             text-align: center;
@@ -59,7 +65,7 @@
             left: 0;
             right: 0;
             border-top: 1px solid #ddd;
-            z-index: 1001; /* Menu above all except mute icon */
+            z-index: 1001;
         }
         nav a {
             margin: 0.5rem 1.5rem;
@@ -75,16 +81,6 @@
             color: #F2C94C;
             border-bottom: 2px solid #333;
         }
-        .menu-toggle {
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1003; /* Ensure menu toggle is above all */
-        }
         .hero {
             text-align: center;
             flex-grow: 1;
@@ -92,10 +88,10 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            padding-top: 0rem;
+            padding: 1rem;
         }
         .hero img {
-            max-width: 25%;
+            max-width: 30%; /* Adjust for desktop */
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
@@ -115,17 +111,18 @@
 
         /* Responsive styles */
         @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                background: #f9f9f9;
-                padding: 1rem;
-                border-top: 1px solid #ddd;
-            }
             .menu-toggle {
                 display: inline-block;
+                position: relative;
+                z-index: 1002;
             }
             nav {
+                position: static;
                 display: none;
+                padding: 1rem;
+            }
+            .hero img {
+                max-width: 50%; /* Adjust for mobile */
             }
         }
 
@@ -147,23 +144,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.querySelector('audio');
-            const muteIcon = document.querySelector('.mute-icon');
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');
+            const muteIcon = document.querySelector('.mute-icon');
+            const audio = document.querySelector('audio');
+
+            menuToggle.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
 
             muteIcon.addEventListener('click', () => {
                 if (audio.muted) {
                     audio.muted = false;
-                    muteIcon.src = 'icons/unmute-icon.png'; // Update with actual unmute icon path
+                    muteIcon.src = 'icons/unmute-icon.png'; // Replace with actual unmute icon path
                 } else {
                     audio.muted = true;
-                    muteIcon.src = 'icons/mute-icon.png'; // Update with actual mute icon path
+                    muteIcon.src = 'icons/mute-icon.png'; // Replace with actual mute icon path
                 }
-            });
-
-            menuToggle.addEventListener('click', () => {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
             });
         });
     </script>
@@ -172,8 +169,8 @@
     <header>
         <h1>Agata & André</h1>
         <h2>Join us for our special day</h2>
-        <img class="mute-icon" src="icons/unmute-icon.png" alt="Mute/Unmute"> <!-- Replace with correct paths -->
         <div class="menu-toggle">☰</div>
+        <img class="mute-icon" src="icons/unmute-icon.png" alt="Mute/Unmute"> <!-- Replace with correct paths -->
     </header>
     <nav>
         <a href="index.html">Home</a>
