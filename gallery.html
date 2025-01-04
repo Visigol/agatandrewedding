@@ -123,10 +123,16 @@
             });
 
             const gallery = document.querySelector('.gallery');
+            gallery.innerHTML = ''; // Clear any initial content
+
             const response = await fetch('photos/photos.json'); // Assuming a photos.json file with photo paths
             const photos = await response.json();
 
-           
+            photos.forEach(photo => {
+                const img = document.createElement('img');
+                img.src = `photos/${photo}`;
+                img.alt = 'Wedding Photo';
+                gallery.appendChild(img);
             });
         });
     </script>
