@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ślub Agaty i Andrzeja</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            text-align: center;
+            padding: 0rem 0;
+            background: #f9f9f9;
+            background-size: cover;
+            flex-shrink: 0;
+        }
+        header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #444;
+            margin: 0;
+        }
+        header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #666;
+            margin: 0.8rem 0 1.5rem;
+        }
+        nav {
+            text-align: center;
+            margin: 1rem 0;
+            display: none;
+            flex-direction: column;
+            background: #f9f9f9;
+            padding: 1rem;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #ddd;
+        }
+        nav a {
+            margin: 0.5rem 1.5rem;
+            text-decoration: none;
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            color: #F2C94C;
+            border-bottom: 2px solid #333;
+        }
+        .hero {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .hero img {
+            max-width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+        .language-switch {
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .language-switch img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #f9f9f9;
+            color: #777;
+            flex-shrink: 0;
+        }
+        .mute-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            color: white;
+            font-size: 1.5rem;
+            flex-direction: column;
+        }
+        .modal button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background: #F2C94C;
+            border: none;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                background: #f9f9f9;
+                padding: 0.5rem;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            .hero img {
+                max-width: 50%;
+            }
+            .language-switch {
+                margin-top: 0.5rem;
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 601px) {
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .menu-toggle {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.querySelector('audio');
+            const muteIcon = document.querySelector('.mute-icon');
+            const modal = document.querySelector('.modal');
+            const playButton = document.querySelector('.modal button');
+
+            audio.muted = false;
+
+            playButton.addEventListener('click', () => {
+                audio.play();
+                modal.style.display = 'none';
+            });
+
+            muteIcon.addEventListener('click', () => {
+                audio.muted = !audio.muted;
+                muteIcon.src = audio.muted ? 'icons/mute.png' : 'icons/unmute.png';
+            });
+        });
+
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</head>
+<body>
+    <div class="modal">
+        <p>Witamy na naszej stronie ślubnej!</p>
+        <button>Wejdź</button>
+    </div>
+    <header>
+        <h1>Agata i Andrzej</h1>
+        <h2>Dołącz do nas w ten wyjątkowy dzień</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </header>
+    <nav>
+        <a href="index-pl.html">Strona Główna</a>
+        <a href="gallery-pl.html">Galeria</a>
+        <a href="party-pl.html">Przyjęcie Weselne</a>
+        <a href="rsvp-pl.html">Potwierdź Obecność</a>
+    </nav>
+    <div class="language-switch">
+        <a href="index.html"><img src="icons/english-flag.png" alt="English"></a>
+        <a href="index-pt.html"><img src="icons/portuguese-flag.png" alt="Portuguese"></a>
+    </div>
+    <div class="hero">
+        <img src="photo11.jpg" alt="Agata i Andrzej">
+        <p>Dołącz do nas na uroczystości ślubne 24 kwietnia 2025</p>
+    </div>
+    <audio autoplay loop>
+        <source src="audio/wedding-song.mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+    </audio>
+    <img class="mute-icon" src="icons/unmute.png" alt="Mute/Unmute">
+    <footer>
+        <p>&copy; 2025 Agata i Andrzej. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+</body>
+</html>
