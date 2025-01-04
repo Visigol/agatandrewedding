@@ -17,7 +17,7 @@
         }
         header {
             text-align: center;
-            padding: 0rem 0; /* Increased top and bottom padding for spacing */
+            padding: 0rem 0;
             background: #f9f9f9;
             background-size: cover;
             flex-shrink: 0;
@@ -32,7 +32,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.2rem;
             color: #666;
-            margin: 0.8rem 0 1.5rem; /* Added margin to separate title and menu */
+            margin: 0.8rem 0 1.5rem;
         }
         nav {
             text-align: center;
@@ -87,14 +87,18 @@
             color: #777;
             flex-shrink: 0;
         }
-        .mute-icon {
+        .controls {
             position: absolute;
             top: 1rem;
             right: 1rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1002;
+        }
+        .controls img {
             width: 30px;
             height: 30px;
             cursor: pointer;
-            z-index: 1002;
         }
         .modal {
             position: fixed;
@@ -199,14 +203,17 @@
         <img src="photo11.jpg" alt="Agata and André">
         <p>Please join us for our wedding celebration on 24th April 2025</p>
     </div>
+    <div class="controls">
+        <img class="mute-icon" src="icons/unmute.png" alt="Mute/Unmute">
+        <a href="index-pl.html"><img src="icons/polish-flag.png" alt="Polish"></a>
+        <a href="index-pt.html"><img src="icons/portuguese-flag.png" alt="Portuguese"></a>
+    </div>
     <audio autoplay loop>
         <source src="audio/wedding-song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <img class="mute-icon" src="icons/unmute.png" alt="Mute/Unmute">
     <footer>
         <p>&copy; 2025 Agata & André. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
-
