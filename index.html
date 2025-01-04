@@ -23,6 +23,7 @@
             background: #f9f9f9;
             background-size: cover;
             flex-shrink: 0;
+            position: relative;
         }
         header h1 {
             font-family: 'Great Vibes', cursive;
@@ -35,6 +36,14 @@
             font-size: 1.2rem;
             color: #666;
             margin-top: 0.5rem;
+        }
+        .mute-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
         }
         nav {
             text-align: center;
@@ -127,16 +136,34 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.querySelector('audio');
+            const muteIcon = document.querySelector('.mute-icon');
+
+            muteIcon.addEventListener('click', () => {
+                if (audio.muted) {
+                    audio.muted = false;
+                    muteIcon.src = 'icons/unmute-icon.png'; // Replace with the actual unmute icon path
+                } else {
+                    audio.muted = true;
+                    muteIcon.src = 'icons/mute-icon.png'; // Replace with the actual mute icon path
+                }
+            });
+
+            // Ensure playback starts on user interaction for mobile devices
+            document.body.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                }
+            }, { once: true });
+        });
     </script>
 </head>
 <body>
     <header>
         <h1>Agata & André</h1>
         <h2>Join us for our special day</h2>
+        <img class="mute-icon" src="icons/unmute-icon.png" alt="Mute/Unmute"> <!-- Replace with your unmute icon -->
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     <nav>
