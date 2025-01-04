@@ -12,18 +12,14 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
         header {
             text-align: center;
-            padding: 1rem 1;
+            padding: 1rem 0;
             background: #f9f9f9;
-            background-size: cover;
             flex-shrink: 0;
-            position: relative;
         }
         header h1 {
             font-family: 'Great Vibes', cursive;
@@ -40,7 +36,6 @@
         nav {
             text-align: center;
             margin: 1rem 0;
-            flex-shrink: 0;
             display: none;
             flex-direction: column;
             background: #f9f9f9;
@@ -70,12 +65,12 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center; /* Center content */
             align-items: center;
-            padding-top: 0rem; /* Push the content up */
+            padding: 1rem;
         }
         .hero img {
-            max-width: 30%; /* Make the image smaller */
+            max-width: 30%;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
@@ -86,10 +81,9 @@
         }
         footer {
             text-align: center;
-            padding: 0rem 1;
+            padding: 1rem 0;
             background: #f9f9f9;
             color: #777;
-            border-top: 0px solid #e8e8e8;
             flex-shrink: 0;
         }
         .mute-icon {
@@ -141,7 +135,7 @@
                 border-radius: 5px;
             }
             .hero img {
-                max-width: 55%; /* Keep image at least 35% size */
+                max-width: 50%;
             }
         }
 
@@ -150,13 +144,10 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                gap: 2rem; /* Add spacing between tabs for horizontal menu */
+                gap: 2rem;
             }
             .menu-toggle {
                 display: none;
-            }
-            nav a {
-                margin: 0; /* Remove extra margin in horizontal menu */
             }
         }
     </style>
@@ -168,10 +159,8 @@
             const modal = document.querySelector('.modal');
             const playButton = document.querySelector('.modal button');
 
-            // Unmute audio by default
             audio.muted = false;
 
-            // Play audio after user interaction
             playButton.addEventListener('click', () => {
                 audio.play();
                 modal.style.display = 'none';
@@ -219,4 +208,3 @@
     </footer>
 </body>
 </html>
-
