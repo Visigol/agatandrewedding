@@ -28,12 +28,15 @@
             color: #444;
         }
         nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 2rem;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
             background: #f9f9f9;
             padding: 1rem 0;
+            z-index: 1000;
         }
         nav a {
             text-decoration: none;
@@ -41,6 +44,7 @@
             font-weight: bold;
             text-transform: uppercase;
             font-size: 0.9rem;
+            margin: 0.5rem 0;
             border-bottom: 2px solid transparent;
             transition: all 0.3s;
         }
@@ -49,7 +53,13 @@
             border-bottom: 2px solid #333;
         }
         .menu-toggle {
-            display: none;
+            display: inline-block;
+            font-size: 1.8rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #333;
         }
         .gallery-container {
             flex-grow: 1;
@@ -66,7 +76,14 @@
         }
         .form-container {
             text-align: center;
-            margin: 3rem 0 6rem; /* Pushed down for mobile menu */
+            margin: 2rem 0;
+        }
+        .divider-section {
+            text-align: center;
+            padding: 1rem;
+            background: #f0f0f0;
+            margin: 2rem 0;
+            border-radius: 10px;
         }
         iframe {
             width: 100%;
@@ -81,24 +98,7 @@
 
         @media (max-width: 600px) {
             nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: #f9f9f9;
-                padding: 1rem 0;
-                z-index: 1000;
-            }
-            .menu-toggle {
-                display: inline-block;
-                font-size: 1.8rem;
-                padding: 0.5rem;
-                cursor: pointer;
-                background: none; /* Transparent background */
-                border: none; /* Remove border */
-                color: #333;
+                display: flex;
             }
         }
     </style>
@@ -128,6 +128,9 @@
     </nav>
     <div class="form-container">
         <h3>Upload Your Photos</h3>
+        <div class="divider-section">
+            <p>Thank you for sharing your special moments with us!</p>
+        </div>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx1_vCZx3umMhtdg9fdbbRrCcrEQZSVpbxLY5_jbjGbFVyFg/viewform"></iframe>
     </div>
     <div class="gallery-container">
