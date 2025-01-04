@@ -80,6 +80,18 @@
             color: #666;
             margin-top: 1rem;
         }
+        .language-switch {
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .language-switch img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
         footer {
             text-align: center;
             padding: 1rem 0;
@@ -87,18 +99,14 @@
             color: #777;
             flex-shrink: 0;
         }
-        .controls {
+        .mute-icon {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            display: flex;
-            gap: 1rem;
-            z-index: 1002;
-        }
-        .controls img {
             width: 30px;
             height: 30px;
             cursor: pointer;
+            z-index: 1002;
         }
         .modal {
             position: fixed;
@@ -141,6 +149,10 @@
             }
             .hero img {
                 max-width: 50%;
+            }
+            .language-switch {
+                margin-top: 0.5rem;
+                flex-direction: column;
             }
         }
 
@@ -199,21 +211,22 @@
         <a href="party.html">Wedding Party</a>
         <a href="rsvp.html">Confirm Presence</a>
     </nav>
+    <div class="language-switch">
+        <a href="index-pl.html"><img src="icons/polish-flag.png" alt="Polish"></a>
+        <a href="index-pt.html"><img src="icons/portuguese-flag.png" alt="Portuguese"></a>
+    </div>
     <div class="hero">
         <img src="photo11.jpg" alt="Agata and André">
         <p>Please join us for our wedding celebration on 24th April 2025</p>
-    </div>
-    <div class="controls">
-        <img class="mute-icon" src="icons/unmute.png" alt="Mute/Unmute">
-        <a href="index-pl.html"><img src="icons/polish-flag.png" alt="Polish"></a>
-        <a href="index-pt.html"><img src="icons/portuguese-flag.png" alt="Portuguese"></a>
     </div>
     <audio autoplay loop>
         <source src="audio/wedding-song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <img class="mute-icon" src="icons/unmute.png" alt="Mute/Unmute">
     <footer>
         <p>&copy; 2025 Agata & André. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
+
