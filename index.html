@@ -151,8 +151,7 @@
                 max-width: 50%;
             }
             .language-switch {
-                margin-top: 0.5rem;
-                flex-direction: column;
+                flex-direction: row; /* Change to horizontal on mobile */
             }
         }
 
@@ -169,31 +168,6 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.querySelector('audio');
-            const muteIcon = document.querySelector('.mute-icon');
-            const modal = document.querySelector('.modal');
-            const playButton = document.querySelector('.modal button');
-
-            audio.muted = false;
-
-            playButton.addEventListener('click', () => {
-                audio.play();
-                modal.style.display = 'none';
-            });
-
-            muteIcon.addEventListener('click', () => {
-                audio.muted = !audio.muted;
-                muteIcon.src = audio.muted ? 'icons/mute.png' : 'icons/unmute.png';
-            });
-        });
-
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        }
-    </script>
 </head>
 <body>
     <div class="modal">
