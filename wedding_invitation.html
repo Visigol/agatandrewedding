@@ -4,57 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            height: 100vh;
+            background: white;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
             overflow: hidden;
-            background-image: url('background_invitation4.jpg');
+            background-image: url('background-invitation4.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
         }
-
-        /* Mobile adjustments for the background */
-        @media (max-width: 768px) {
-            body {
-                background-size: cover;
-                background-position: center;
-                background-attachment: scroll; /* Let it scroll for mobile */
-            }
-        }
-
         .container {
+            text-align: center;
             position: relative;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-
-        /* Envelope styles */
         .envelope {
             width: 300px;
             height: 200px;
+            position: absolute;
             background: #fbe8a6;
             border-radius: 10px;
-            position: absolute;
-            cursor: pointer;
             overflow: hidden;
+            cursor: pointer;
             transition: all 0.5s ease-in-out;
             animation: flyAround 4s ease-in-out;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            z-index: 10;
         }
-
         .flap {
             width: 0;
             height: 0;
@@ -66,76 +49,56 @@
             transform-origin: top;
             transition: transform 0.5s ease-in-out;
         }
-
         .envelope.open .flap {
             transform: rotateX(-90deg);
         }
-
         .envelope-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: #333;
-            display: block;
             font-weight: bold;
-            text-transform: uppercase;
-            z-index: 100;
+            display: block;
+            animation: typewriter 2s steps(20) 1;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
         }
-
-        /* Invitation box */
         .invitation {
             display: none;
-            font-size: 1.5rem;
+            margin-top: 20px;
+            font-size: 1.2rem;
             color: #555;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 30px;
+            background: white;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 700px;
-            opacity: 0;
-            z-index: 20; /* Higher z-index to be above background and envelope */
-            transition: opacity 0.5s ease-in-out;
             animation: fadeIn 1s ease-in-out;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
         }
-
-        .invitation-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            justify-content: center; /* Center content vertically */
-            text-align: center; /* Center text */
-            animation: showUp 1s ease-in-out forwards;
-            opacity: 0;
-        }
-
         .envelope.open + .invitation {
             display: block;
-            opacity: 1;
         }
-
         button {
-            background: #f0ad4e;
+            background: #f1c40f; /* Gold buttons */
             border: none;
-            padding: 15px 25px;
+            padding: 10px 20px;
             border-radius: 20px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.3s;
+            width: 100%;
         }
-
         button:hover {
-            background: #ec971f;
+            background: #e0b20d;
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -144,7 +107,6 @@
                 opacity: 1;
             }
         }
-
         @keyframes flyAround {
             0% {
                 top: 50%;
@@ -172,55 +134,51 @@
                 transform: translate(-50%, -50%) rotate(0deg);
             }
         }
-
-        @keyframes showUp {
+        @keyframes typewriter {
             from {
-                opacity: 0;
+                width: 0;
             }
             to {
-                opacity: 1;
+                width: 100%;
             }
         }
-
-        /* Mobile and Responsive */
-        @media (max-width: 768px) {
-            .envelope {
-                width: 250px;
-                height: 180px;
-            }
-
-            .envelope-text {
-                font-size: 1rem;
-            }
-
-            .invitation {
-                width: 90%;
-                max-width: 600px;
-                padding: 20px;
-            }
-
-            button {
-                padding: 12px 22px;
-                font-size: 1rem;
-            }
+        .flags {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .flag {
+            width: 30px;
+            height: 20px;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .flag-poland {
+            background-image: url('poland-flag.png');
+        }
+        .flag-portugal {
+            background-image: url('portugal-flag.png');
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="flags">
+            <div class="flag flag-poland" onclick="window.location.href = 'polish-invitation.html';"></div>
+            <div class="flag flag-portugal" onclick="window.location.href = 'portuguese-invitation.html';"></div>
+        </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
-            <div class="envelope-text" id="envelopeText">Press me to open</div>
+            <div class="envelope-text">PRESS ME TO OPEN</div>
         </div>
-
         <div class="invitation">
-            <div class="invitation-content">
-                <h1>You Are Invited!</h1>
-                <p>Join us for the wedding of André & Agata on 24th April in Rybnik.</p>
-                <button onclick="addToCalendar()">Add to Google Calendar</button>
-                <button onclick="openWeddingWebsite()">Our Wedding Website</button>
-                <button onclick="confirmPresence()">Confirm your presence</button>
-            </div>
+            <h1>You Are Invited!</h1>
+            <p>Join us for the wedding of André & Agata on 24th April in Rybnik.</p>
+            <button onclick="addToCalendar()">Add to Google Calendar</button>
+            <button onclick="openWeddingWebsite()">Our Wedding Website</button>
+            <button onclick="confirmPresence()">Confirm your presence</button>
         </div>
     </div>
 
@@ -228,27 +186,23 @@
         function openEnvelope() {
             const envelope = document.querySelector('.envelope');
             envelope.classList.add('open');
-            envelope.style.animation = 'none'; // Stop envelope flying after click
-            envelope.style.display = 'none'; // Hide the envelope after it opens
+            envelope.style.animation = 'none';
 
-            const envelopeText = document.getElementById('envelopeText');
-            envelopeText.style.display = 'none';
-
-            const invitation = document.querySelector('.invitation');
-            invitation.style.display = 'block';
-            invitation.style.opacity = 1;
+            // Show the invitation box after envelope is pressed
+            document.querySelector('.invitation').style.display = 'block';
         }
 
         function addToCalendar() {
-            window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andr%C3%A9%20%26%20Agata%27s%20Wedding&dates=20250424T150000Z/20250424T200000Z&details=Join%20us%20for%20the%20wedding%20of%20Andr%C3%A9%20%26%20Agata%20on%20April%2024th%2C%202025%20in%20Rybnik.&location=Rybnik%2C%20Poland');
+            window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andr%C3%A9%20%26%20Agata%27s%20Wedding&dates=20250424T150000Z/20250424T200000Z&details=Join%20us%20for%20the%20wedding%20of%20Andr%C3%A9%20%26%20Agata!&location=Wedding%20Venue', '_blank');
         }
 
         function openWeddingWebsite() {
-            window.open('https://www.ourweddingwebsite.com');
+            window.location.href = 'https://visigol.github.io/agatandrewedding/';
         }
 
         function confirmPresence() {
-            window.open('https://www.ourweddingwebsite.com/confirm-presence');
+            // Redirect to a specific page for confirming presence
+            window.location.href = 'confirmation-page-url';
         }
     </script>
 </body>
