@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-image: url('background-invitation.jpg');
+            background-image: url('background-invitation2.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -186,6 +186,30 @@
                 opacity: 0;
             }
         }
+
+        /* Mobile and Responsive */
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+                background-position: center;
+            }
+            .envelope {
+                width: 250px;
+                height: 180px;
+            }
+            .envelope-text {
+                font-size: 1rem;
+            }
+            .invitation {
+                width: 90%;
+                max-width: 600px;
+                padding: 20px;
+            }
+            button {
+                padding: 12px 22px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -241,3 +265,4 @@
     </script>
 </body>
 </html>
+
