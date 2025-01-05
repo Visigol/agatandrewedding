@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -14,7 +15,6 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            position: relative;
         }
         .container {
             text-align: center;
@@ -55,42 +55,44 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #333;
             display: block;
             font-weight: bold;
+            text-transform: uppercase;
         }
         .invitation {
             display: none;
             margin-top: 20px;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: #555;
             background: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in-out;
             position: absolute;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
+            top: 50%; /* Centered vertically */
+            width: 80%; /* Make the invitation box bigger */
         }
         .envelope.open + .invitation {
             display: block;
         }
         button {
-            background: #007bff;
+            background: #f0ad4e; /* Goldish yellowish color */
             border: none;
-            padding: 10px 20px;
+            padding: 15px 25px;
             border-radius: 20px;
             color: white;
-            font-size: 1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.3s;
         }
         button:hover {
-            background: #0056b3;
+            background: #ec971f;
         }
         .confetti {
             position: absolute;
@@ -138,84 +140,18 @@
         }
         @keyframes fall {
             0% {
-                transform: translateY(-100vh) rotate(0deg);
+                transform: translateY(100vh) rotate(0deg);
                 opacity: 1;
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateY(-100vh) rotate(360deg);
                 opacity: 0;
-            }
-        }
-        .flag-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-        }
-        .flag-container img {
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-        .flag-container img:hover {
-            opacity: 0.7;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .envelope {
-                width: 250px;
-                height: 170px;
-            }
-            .envelope-text {
-                font-size: 1.2rem;
-            }
-            .invitation {
-                font-size: 1rem;
-                padding: 15px;
-            }
-            .invitation button {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
-            .flag-container img {
-                width: 25px;
-                height: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .envelope {
-                width: 200px;
-                height: 150px;
-            }
-            .envelope-text {
-                font-size: 1rem;
-            }
-            .invitation {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-            .invitation button {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
-            .flag-container img {
-                width: 20px;
-                height: 14px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Flags for translation -->
-        <div class="flag-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/1024px-Flag_of_Poland.svg.png" alt="Polish Flag" onclick="window.location.href='https://your-polish-translation-page.com'">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Flag_of_Portugal.svg/1024px-Flag_of_Portugal.svg.png" alt="Portuguese Flag" onclick="window.location.href='https://your-portuguese-translation-page.com'">
-        </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
             <div class="envelope-text" id="envelopeText">Press me to open</div>
@@ -232,16 +168,13 @@
     <script>
         function openEnvelope() {
             const envelope = document.querySelector('.envelope');
-            const envelopeText = document.getElementById('envelopeText');
             envelope.classList.add('open');
             envelope.style.animation = 'none';
             createConfetti();
 
-            // Hide envelope text and envelope after it's pressed
+            const envelopeText = document.getElementById('envelopeText');
             envelopeText.style.display = 'none';
-            envelope.style.display = 'none'; // Hide envelope when pressed
 
-            // Show the invitation box after envelope is pressed
             document.querySelector('.invitation').style.display = 'block';
         }
 
@@ -254,7 +187,6 @@
         }
 
         function confirmPresence() {
-            // Redirect to a specific page for confirming presence
             window.location.href = 'confirmation-page-url';
         }
 
@@ -264,8 +196,18 @@
                 confetti.classList.add('confetti');
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.backgroundColor = getRandomColor();
                 document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
             }
+        }
+
+        function getRandomColor() {
+            const colors = ['#FFB6C1', '#FFD700', '#ADFF2F', '#87CEEB', '#FF69B4', '#FFA07A'];
+            return colors[Math.floor(Math.random() * colors.length)];
         }
     </script>
 </body>
