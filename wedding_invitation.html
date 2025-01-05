@@ -8,37 +8,53 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-image: url('background-invitation3.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             margin: 0;
-            overflow: hidden;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+            background-image: url('background-invitation3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
+
+        /* Mobile adjustments for the background */
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+                background-position: center;
+                background-attachment: scroll; /* Let it scroll for mobile */
+            }
+        }
+
         .container {
-            text-align: center;
             position: relative;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Envelope styles */
         .envelope {
             width: 300px;
             height: 200px;
-            position: absolute;
             background: #fbe8a6;
             border-radius: 10px;
-            overflow: hidden;
+            position: absolute;
             cursor: pointer;
+            overflow: hidden;
             transition: all 0.5s ease-in-out;
             animation: flyAround 4s ease-in-out;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+            z-index: 10;
         }
+
         .flap {
             width: 0;
             height: 0;
@@ -50,9 +66,11 @@
             transform-origin: top;
             transition: transform 0.5s ease-in-out;
         }
+
         .envelope.open .flap {
             transform: rotateX(-90deg);
         }
+
         .envelope-text {
             position: absolute;
             top: 50%;
@@ -63,7 +81,10 @@
             display: block;
             font-weight: bold;
             text-transform: uppercase;
+            z-index: 100;
         }
+
+        /* Invitation box */
         .invitation {
             display: none;
             font-size: 1.5rem;
@@ -72,7 +93,6 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -80,22 +100,22 @@
             width: 80%;
             max-width: 700px;
             opacity: 0;
+            z-index: 20; /* Higher z-index to be above background and envelope */
             transition: opacity 0.5s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
         }
+
         .invitation-content {
             display: block;
             animation: showUp 1s ease-in-out forwards;
             opacity: 0;
         }
+
         .envelope.open + .invitation {
             display: block;
             opacity: 1;
         }
-        .envelope-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+
         button {
             background: #f0ad4e;
             border: none;
@@ -107,25 +127,11 @@
             margin-top: 10px;
             transition: background 0.3s;
         }
+
         button:hover {
             background: #ec971f;
         }
-        .sparkles {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: sparkle 2s ease-in-out infinite;
-            pointer-events: none;
-        }
-        .sparkle {
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 223, 0, 0.7);
-            border-radius: 50%;
-            animation: sparkleEffect 2s ease-in-out infinite;
-            position: absolute;
-        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -134,6 +140,7 @@
                 opacity: 1;
             }
         }
+
         @keyframes flyAround {
             0% {
                 top: 50%;
@@ -161,50 +168,33 @@
                 transform: translate(-50%, -50%) rotate(0deg);
             }
         }
-        @keyframes sparkleEffect {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0.7;
-            }
-            50% {
-                transform: translateY(-10px) scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0) scale(1);
-                opacity: 0.7;
-            }
-        }
-        @keyframes sparkle {
-            0% {
+
+        @keyframes showUp {
+            from {
                 opacity: 0;
             }
-            50% {
+            to {
                 opacity: 1;
-            }
-            100% {
-                opacity: 0;
             }
         }
 
         /* Mobile and Responsive */
         @media (max-width: 768px) {
-            body {
-                background-size: cover;
-                background-position: center;
-            }
             .envelope {
                 width: 250px;
                 height: 180px;
             }
+
             .envelope-text {
                 font-size: 1rem;
             }
+
             .invitation {
                 width: 90%;
                 max-width: 600px;
                 padding: 20px;
             }
+
             button {
                 padding: 12px 22px;
                 font-size: 1rem;
@@ -218,7 +208,7 @@
             <div class="flap"></div>
             <div class="envelope-text" id="envelopeText">Press me to open</div>
         </div>
-        
+
         <div class="invitation">
             <div class="invitation-content">
                 <h1>You Are Invited!</h1>
@@ -227,13 +217,6 @@
                 <button onclick="openWeddingWebsite()">Our Wedding Website</button>
                 <button onclick="confirmPresence()">Confirm your presence</button>
             </div>
-        </div>
-        <div class="sparkles">
-            <div class="sparkle" style="left: 10%;"></div>
-            <div class="sparkle" style="left: 30%;"></div>
-            <div class="sparkle" style="left: 50%;"></div>
-            <div class="sparkle" style="left: 70%;"></div>
-            <div class="sparkle" style="left: 90%;"></div>
         </div>
     </div>
 
@@ -266,5 +249,3 @@
     </script>
 </body>
 </html>
-
-
