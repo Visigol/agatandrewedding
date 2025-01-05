@@ -15,10 +15,11 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            position: relative;
         }
         .container {
             text-align: center;
-            position: relative;
+            position: absolute;
             width: 100%;
             height: 100%;
         }
@@ -74,8 +75,9 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: 50%; /* Centered vertically */
-            width: 80%; /* Make the invitation box bigger */
+            top: 50%;
+            width: 80%;
+            max-width: 700px; /* To make it bigger but not too wide */
         }
         .envelope.open + .invitation {
             display: block;
@@ -169,7 +171,8 @@
         function openEnvelope() {
             const envelope = document.querySelector('.envelope');
             envelope.classList.add('open');
-            envelope.style.animation = 'none';
+            envelope.style.animation = 'none'; // Stop envelope flying after click
+            envelope.style.display = 'none'; // Hide the envelope after it opens
             createConfetti();
 
             const envelopeText = document.getElementById('envelopeText');
@@ -212,4 +215,3 @@
     </script>
 </body>
 </html>
-
