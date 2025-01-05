@@ -7,8 +7,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('background-image9.jpg') no-repeat center center;
-            background-size: cover;
+            background: #fff;
             color: #333;
             margin: 0;
             padding: 0;
@@ -19,7 +18,8 @@
         header {
             text-align: center;
             padding: 0rem 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: #f9f9f9;
+            background-size: cover;
             flex-shrink: 0;
         }
         header h1 {
@@ -39,7 +39,7 @@
             margin: 1rem 0;
             display: none;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.8);
+            background: #f9f9f9;
             padding: 1rem;
             position: absolute;
             top: 60px;
@@ -81,12 +81,11 @@
             margin-top: 1rem;
         }
         .language-switch {
-            position: absolute;
-            top: 120px; /* Adjust this value to align properly under the menu */
-            right: 10px;
+            margin-top: 1rem;
+            text-align: center;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: center;
+            gap: 1rem;
         }
         .language-switch img {
             width: 30px;
@@ -96,14 +95,14 @@
         footer {
             text-align: center;
             padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: #f9f9f9;
             color: #777;
             flex-shrink: 0;
         }
         .mute-icon {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 1rem;
+            right: 1rem;
             width: 30px;
             height: 30px;
             cursor: pointer;
@@ -143,7 +142,7 @@
                 align-items: center;
                 font-size: 1.5rem;
                 cursor: pointer;
-                background: rgba(255, 255, 255, 0.8);
+                background: #f9f9f9;
                 padding: 0.5rem;
                 border: 1px solid #ddd;
                 border-radius: 5px;
@@ -151,8 +150,9 @@
             .hero img {
                 max-width: 50%;
             }
-            nav {
-                display: flex; /* Ensure menu displays vertically on mobile */
+            .language-switch {
+                margin-top: 0.5rem;
+                flex-direction: column;
             }
         }
 
@@ -162,7 +162,6 @@
                 flex-direction: row;
                 justify-content: center;
                 gap: 2rem;
-                position: static;
             }
             .menu-toggle {
                 display: none;
@@ -172,13 +171,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.querySelector('nav');
-            const menuToggle = document.querySelector('.menu-toggle');
+            const audio = document.querySelector('audio');
+            const muteIcon = document.querySelector('.mute-icon');
+            const modal = document.querySelector('.modal');
+            const playButton = document.querySelector('.modal button');
 
-            menuToggle.addEventListener('click', () => {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            audio.muted = false;
+
+            playButton.addEventListener('click', () => {
+                audio.play();
+                modal.style.display = 'none';
+            });
+
+            muteIcon.addEventListener('click', () => {
+                audio.muted = !audio.muted;
+                muteIcon.src = audio.muted ? 'icons/mute.png' : 'icons/unmute.png';
             });
         });
+
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
     </script>
 </head>
 <body>
@@ -189,7 +203,7 @@
     <header>
         <h1>Agata & André</h1>
         <h2>Join us for our special day</h2>
-        <div class="menu-toggle">☰</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     <nav>
         <a href="index.html">Home</a>
@@ -199,7 +213,7 @@
         <a href="wedding_invitation.html">Invitation</a>
     </nav>
     <div class="language-switch">
-        <a href="index-en.html"><img src="icons/english-flag.png" alt="English"></a>
+        <a href="index-pl.html"><img src="icons/polish-flag.png" alt="Polish"></a>
         <a href="index-pt.html"><img src="icons/portuguese-flag.png" alt="Portuguese"></a>
     </div>
     <div class="hero">
