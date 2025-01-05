@@ -28,8 +28,10 @@
             color: #444;
             margin: 0;
         }
-        header .spacer {
-            height: 2.5rem; /* Match the height of the removed h2 for consistent spacing */
+        header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #666;
             margin: 0.8rem 0 1.5rem;
         }
         nav {
@@ -167,6 +169,31 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.querySelector('audio');
+            const muteIcon = document.querySelector('.mute-icon');
+            const modal = document.querySelector('.modal');
+            const playButton = document.querySelector('.modal button');
+
+            audio.muted = false;
+
+            playButton.addEventListener('click', () => {
+                audio.play();
+                modal.style.display = 'none';
+            });
+
+            muteIcon.addEventListener('click', () => {
+                audio.muted = !audio.muted;
+                muteIcon.src = audio.muted ? 'icons/mute.png' : 'icons/unmute.png';
+            });
+        });
+
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </head>
 <body>
     <div class="modal">
@@ -175,7 +202,7 @@
     </div>
     <header>
         <h1>Agata & André</h1>
-        <div class="spacer"></div> <!-- Placeholder for the removed h2 -->
+        <h2>Join us for our special day</h2>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     <nav>
@@ -203,6 +230,4 @@
     </footer>
 </body>
 </html>
-
-
 
