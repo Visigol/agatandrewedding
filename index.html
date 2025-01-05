@@ -9,6 +9,7 @@
             font-family: 'Poppins', sans-serif;
             background: url('background-image9.jpg') no-repeat center center fixed;
             background-size: cover;
+            background-attachment: fixed;
             color: #333;
             margin: 0;
             padding: 0;
@@ -85,7 +86,8 @@
             text-align: center;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem; /* Increased spacing */
+            margin-bottom: 1rem; /* Added spacing below flags */
         }
         .language-switch img {
             width: 30px;
@@ -101,8 +103,8 @@
         }
         .mute-icon {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 2rem; /* Adjusted to avoid overlap */
+            right: 2rem;
             width: 30px;
             height: 30px;
             cursor: pointer;
@@ -122,6 +124,12 @@
             color: white;
             font-size: 1.5rem;
             flex-direction: column;
+            padding: 1rem;
+            text-align: center; /* Ensure proper alignment */
+        }
+        .modal p {
+            text-align: center;
+            margin: 0; /* Center modal text */
         }
         .modal button {
             margin-top: 20px;
@@ -151,8 +159,8 @@
                 max-width: 50%;
             }
             .language-switch {
-                margin-top: 0.5rem;
-                flex-direction: column;
+                flex-direction: row; /* Horizontal layout */
+                gap: 0.8rem; /* Slightly smaller gap for mobile */
             }
         }
 
