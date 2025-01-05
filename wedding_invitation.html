@@ -7,16 +7,18 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: white;
+            background-color: white; /* Fallback background color */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            background-image: url('background-invitation5.jpg'); /* Corrected background image */
+            background-image: url('background-invitation5.jpg'); /* Ensure correct path */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid red; /* Temporary border to check if background is applied */
         }
         .container {
             text-align: center;
@@ -206,14 +208,12 @@
         }
 
         function openWeddingWebsite() {
-            window.location.href = 'https://visigol.github.io/agatandrewedding/';
+            window.location.href = 'https://www.ourweddingwebsite.com';
         }
 
         function confirmPresence() {
-            // Redirect to a specific page for confirming presence
-            window.location.href = 'https://visigol.github.io/agatandrewedding/rsvp.html';
+            window.location.href = 'https://www.ourweddingwebsite.com/confirm';
         }
     </script>
 </body>
 </html>
-
