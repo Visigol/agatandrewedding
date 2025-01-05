@@ -52,6 +52,8 @@
         .envelope.open .flap {
             transform: rotateX(-90deg);
         }
+        /* Apply the romantic font and fix text position */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /* Romantic font */
         .envelope-text {
             position: absolute;
             top: 50%;
@@ -59,20 +61,17 @@
             transform: translate(-50%, -50%);
             font-size: 1.5rem;
             color: #333;
-            font-weight: bold;
+            font-weight: normal;
             display: block;
             animation: typewriter 2s steps(20) 1;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Dancing Script', cursive; /* Apply romantic font */
             letter-spacing: 1px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            text-transform: none; /* No uppercase letters */
         }
         .invitation {
             display: none;
             margin-top: 20px;
-            font-size: 1.5rem; /* Larger text size */
+            font-size: 1.5rem;
             color: #555;
             background: white;
             padding: 40px;
@@ -83,7 +82,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            max-width: 800px; /* Larger box width */
+            max-width: 800px;
             top: 50%;
             transform: translate(-50%, -50%);
         }
@@ -177,7 +176,7 @@
         </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
-            <div class="envelope-text">PRESS ME TO OPEN</div>
+            <div class="envelope-text">Press me to open</div> <!-- Text now in romantic font, lowercase -->
         </div>
         <div class="invitation">
             <h1>You Are Invited!</h1>
