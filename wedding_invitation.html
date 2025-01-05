@@ -247,8 +247,9 @@
             const envelopeText = document.getElementById('envelopeText');
             envelopeText.style.display = 'none';
 
-            document.querySelector('.invitation').style.display = 'block';
-            document.querySelector('.invitation').style.opacity = 1;
+            const invitation = document.querySelector('.invitation');
+            invitation.style.display = 'block';
+            invitation.style.opacity = 1;
         }
 
         function addToCalendar() {
