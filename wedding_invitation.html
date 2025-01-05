@@ -59,9 +59,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2rem; /* Larger font size */
-            font-weight: bold; /* Bold text */
+            font-size: 1.5rem;
             color: #333;
+            font-weight: bold; /* Make the text bold */
+            font-size: 2rem; /* Increase text size */
             display: block;
             animation: typewriter 2s steps(20) 1;
             font-family: 'Dancing Script', cursive; /* Apply romantic font */
@@ -153,6 +154,7 @@
             right: 20px;
             display: flex;
             gap: 10px;
+            z-index: 999; /* Ensure the flags are above other elements */
         }
         .flag {
             width: 30px;
@@ -161,10 +163,10 @@
             cursor: pointer;
         }
         .flag-poland {
-            background-image: url('poland-flag.png');
+            background-image: url('poland-flag.jpg'); /* Update with actual path */
         }
         .flag-portugal {
-            background-image: url('portugal-flag.png');
+            background-image: url('portugal-flag.jpg'); /* Update with actual path */
         }
     </style>
 </head>
@@ -176,7 +178,7 @@
         </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
-            <div class="envelope-text">Press me to open</div> <!-- Bold and larger text -->
+            <div class="envelope-text">Press me to open</div> <!-- Text now in romantic font, bold and larger -->
         </div>
         <div class="invitation">
             <h1>You Are Invited!</h1>
