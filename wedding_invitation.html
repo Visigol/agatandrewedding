@@ -162,14 +162,59 @@
         .flag-container img:hover {
             opacity: 0.7;
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .envelope {
+                width: 250px;
+                height: 170px;
+            }
+            .envelope-text {
+                font-size: 1.2rem;
+            }
+            .invitation {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            .invitation button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+            .flag-container img {
+                width: 25px;
+                height: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .envelope {
+                width: 200px;
+                height: 150px;
+            }
+            .envelope-text {
+                font-size: 1rem;
+            }
+            .invitation {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            .invitation button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            .flag-container img {
+                width: 20px;
+                height: 14px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Flags for translation -->
         <div class="flag-container">
-            <img src="icons/polish-flag.png" alt="Polish Flag" onclick="window.location.href='https://visigol.github.io/agatandrewedding/index-pl.html'">
-            <img src="icons/portuguese-flag.png" alt="Portuguese Flag" onclick="window.location.href='https://visigol.github.io/agatandrewedding/index-pt.html'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/1024px-Flag_of_Poland.svg.png" alt="Polish Flag" onclick="window.location.href='https://your-polish-translation-page.com'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Flag_of_Portugal.svg/1024px-Flag_of_Portugal.svg.png" alt="Portuguese Flag" onclick="window.location.href='https://your-portuguese-translation-page.com'">
         </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
@@ -219,19 +264,10 @@
                 confetti.classList.add('confetti');
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.animationDelay = Math.random() * 2 + 's';
-                confetti.style.backgroundColor = getRandomColor();
                 document.body.appendChild(confetti);
-
-                setTimeout(() => {
-                    confetti.remove();
-                }, 3000);
             }
-        }
-
-        function getRandomColor() {
-            const colors = ['#FFB6C1', '#FFD700', '#ADFF2F', '#87CEEB', '#FF69B4', '#FFA07A'];
-            return colors[Math.floor(Math.random() * colors.length)];
         }
     </script>
 </body>
 </html>
+
