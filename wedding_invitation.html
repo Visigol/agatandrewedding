@@ -80,6 +80,8 @@
             transform: translateX(-50%);
             width: 80%;
             max-width: 600px;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
         .envelope.open + .invitation {
             display: block;
@@ -190,6 +192,8 @@
 
             // Show the invitation box after envelope is pressed
             document.querySelector('.invitation').style.display = 'block';
+            // Hide the envelope after press
+            envelope.style.display = 'none';
         }
 
         function addToCalendar() {
