@@ -14,6 +14,9 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            background-image: url('background-invitation4.jpg');
+            background-size: cover;
+            background-position: center;
         }
         .container {
             text-align: center;
@@ -49,7 +52,8 @@
         .envelope.open .flap {
             transform: rotateX(-90deg);
         }
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+        /* Apply the romantic font and fix text position */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /* Romantic font */
         .envelope-text {
             position: absolute;
             top: 50%;
@@ -57,13 +61,13 @@
             transform: translate(-50%, -50%);
             font-size: 1.5rem;
             color: #333;
-            font-weight: bold;
-            font-size: 2rem;
+            font-weight: bold; /* Make the text bold */
+            font-size: 2rem; /* Increase text size */
             display: block;
             animation: typewriter 2s steps(20) 1;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive; /* Apply romantic font */
             letter-spacing: 1px;
-            text-transform: none;
+            text-transform: none; /* No uppercase letters */
         }
         .invitation {
             display: none;
@@ -87,12 +91,12 @@
             display: block;
         }
         button {
-            background: #f1c40f;
+            background: #f1c40f; /* Gold buttons */
             border: none;
             padding: 15px 30px;
             border-radius: 20px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.2rem; /* Larger button text */
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.3s;
@@ -150,7 +154,7 @@
             right: 20px;
             display: flex;
             gap: 10px;
-            z-index: 999;
+            z-index: 999; /* Ensure the flags are above other elements */
         }
         .flag {
             width: 30px;
@@ -159,10 +163,10 @@
             cursor: pointer;
         }
         .flag-poland {
-            background-image: url('icons/polish-flag.jpg');
+            background-image: url('icons/polish-flag.jpg'); /* Corrected path */
         }
         .flag-portugal {
-            background-image: url('icons/portuguese-flag.jpg');
+            background-image: url('icons/portuguese-flag.jpg'); /* Corrected path */
         }
     </style>
 </head>
@@ -174,7 +178,7 @@
         </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
-            <div class="envelope-text">Press me to open</div>
+            <div class="envelope-text">Press me to open</div> <!-- Text now in romantic font, bold and larger -->
         </div>
         <div class="invitation">
             <h1>You Are Invited!</h1>
@@ -191,7 +195,9 @@
             envelope.classList.add('open');
             envelope.style.animation = 'none';
 
+            // Show the invitation box after envelope is pressed
             document.querySelector('.invitation').style.display = 'block';
+            // Hide the envelope after press
             envelope.style.display = 'none';
         }
 
@@ -204,6 +210,7 @@
         }
 
         function confirmPresence() {
+            // Redirect to a specific page for confirming presence
             window.location.href = 'https://visigol.github.io/agatandrewedding/rsvp.html';
         }
     </script>
