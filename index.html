@@ -80,6 +80,7 @@
             top: 10px;
             right: 10px;
             display: flex;
+            flex-direction: column; /* Vertical alignment */
             gap: 10px;
         }
         .language-switch img {
@@ -156,6 +157,11 @@
                 muteIcon.src = audio.muted ? 'icons/mute.png' : 'icons/unmute.png';
             });
         });
+
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
     </script>
 </head>
 <body>
@@ -166,6 +172,7 @@
     <header>
         <h1>Agata & André</h1>
         <h2>Join us for our special day</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     <nav>
         <a href="index.html">Home</a>
