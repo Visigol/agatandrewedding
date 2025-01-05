@@ -64,22 +64,26 @@
             animation: typewriter 2s steps(20) 1;
             font-family: 'Poppins', sans-serif;
             letter-spacing: 1px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         .invitation {
             display: none;
             margin-top: 20px;
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* Larger text size */
             color: #555;
             background: white;
-            padding: 20px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in-out;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 800px; /* Larger box width */
             top: 50%;
             transform: translate(-50%, -50%);
         }
@@ -89,10 +93,10 @@
         button {
             background: #f1c40f; /* Gold buttons */
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border-radius: 20px;
             color: white;
-            font-size: 1rem;
+            font-size: 1.2rem; /* Larger button text */
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.3s;
