@@ -38,18 +38,12 @@
         nav {
             text-align: center;
             margin: 1rem 0;
-            display: none;
-            flex-direction: column;
-            background: #f9f9f9;
-            padding: 1rem;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            right: 0;
-            border-top: 1px solid #ddd;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2rem;
         }
         nav a {
-            margin: 0.5rem 1.5rem;
             text-decoration: none;
             color: #444;
             font-weight: bold;
@@ -102,8 +96,8 @@
         }
         .mute-icon {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 10px;
+            left: 10px;
             width: 30px;
             height: 30px;
             cursor: pointer;
@@ -137,34 +131,8 @@
 
         /* Responsive styles */
         @media (max-width: 600px) {
-            .menu-toggle {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.5rem;
-                cursor: pointer;
-                background: #f9f9f9;
-                padding: 0.5rem;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-            }
             .hero img {
                 max-width: 50%;
-            }
-            .language-switch {
-                flex-direction: column;
-            }
-        }
-
-        @media (min-width: 601px) {
-            nav {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 2rem;
-            }
-            .menu-toggle {
-                display: none;
             }
         }
     </style>
@@ -188,11 +156,6 @@
                 muteIcon.src = audio.muted ? 'icons/mute.png' : 'icons/unmute.png';
             });
         });
-
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        }
     </script>
 </head>
 <body>
@@ -203,7 +166,6 @@
     <header>
         <h1>Agata & André</h1>
         <h2>Join us for our special day</h2>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     <nav>
         <a href="index.html">Home</a>
