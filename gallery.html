@@ -114,40 +114,32 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
      <script>
-       document.addEventListener('DOMContentLoaded', async () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
+    document.addEventListener('DOMContentLoaded', async () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
 
-    menuToggle.addEventListener('click', () => {
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        menuToggle.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        const gallery = document.querySelector('.gallery');
+        gallery.innerHTML = ''; // Clear any initial content
+
+        const response = await fetch('photos/photos.json'); // Fetch the photos JSON file
+        let photos = await response.json();
+
+        // Sort photos in ascending order
+        photos.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+        // Render sorted photos
+        photos.forEach(photo => {
+            const img = document.createElement('img');
+            img.src = `photos/${photo}`;
+            img.alt = 'Wedding Photo';
+            gallery.appendChild(img);
+        });
     });
-
-    const gallery = document.querySelector('.gallery');
-    gallery.innerHTML = ''; // Clear any initial content
-
-    const response = await fetch('photos/photos.json'); // Fetch the photos JSON file
-    let photos = await response.json();
-
-    // Sort photos in ascending order
-    photos.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
-
-    // Render sorted photos with uniform size
-    photos.forEach(photo => {
-        const img = document.createElement('img');
-        img.src = `photos/${photo}`;
-        img.alt = 'Wedding Photo';
-        
-        // Dynamically set size
-        img.style.width = '100%';
-        img.style.height = '200px';
-        img.style.objectFit = 'cover';
-        img.style.borderRadius = '10px';
-        img.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-        
-        gallery.appendChild(img);
-    });
-});
-    </script>
+</script>
 </head>
 <body>
     <header>
