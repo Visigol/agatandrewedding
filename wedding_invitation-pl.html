@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaproszenie Ślubne</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Poppins', sans-serif;
             background-color: white; /* Fallback background color */
             display: flex;
             justify-content: center;
@@ -55,6 +54,7 @@
             transform: rotateX(-90deg);
         }
         /* Apply the romantic font and fix text position */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /* Romantic font */
         .envelope-text {
             position: absolute;
             top: 50%;
@@ -66,7 +66,7 @@
             font-size: 2rem; /* Increase text size */
             display: block;
             animation: typewriter 2s steps(20) 1;
-            font-family: 'Great Vibes', cursive; /* Apply romantic font */
+            font-family: 'Dancing Script', cursive; /* Apply romantic font */
             letter-spacing: 1px;
             text-transform: none; /* No uppercase letters */
         }
@@ -89,7 +89,12 @@
             transform: translate(-50%, -50%);
         }
         .invitation p {
-            font-family: 'Great Vibes', cursive; /* Apply Great Vibes font */
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font for the first two sentences */
+        }
+        .invitation .romantic {
+            font-family: 'Dancing Script', cursive; /* Apply romantic font for the last sentence */
+            font-size: 1.8rem;
+            color: #f39c12; /* Goldish color for the romantic sentence */
         }
         .envelope.open + .invitation {
             display: block;
@@ -105,7 +110,6 @@
             margin-top: 10px;
             transition: background 0.3s;
             width: 100%;
-            font-family: 'Great Vibes', cursive; /* Button font */
         }
         button:hover {
             background: #e0b20d;
@@ -183,12 +187,13 @@
         </div>
         <div class="envelope" onclick="openEnvelope()">
             <div class="flap"></div>
-            <div class="envelope-text">Kliknij, aby otworzyć</div> <!-- Text in Polish -->
+            <div class="envelope-text" style="font-family: 'Classic Vibes', cursive;">Kliknij, aby otworzyć</div>
+ <!-- Text in Polish -->
         </div>
         <div class="invitation">
             <h1>Jesteś zaproszony!</h1>
             <p>Dołącz do nas na ślubie Agaty i Andrzeja 24 kwietnia 2025.</p>
-            <p>Podróż przez czas, zjednoczeni na zawsze.</p> <!-- Romantic font applied to the last sentence -->
+            <p class="romantic" style="font-family: 'Classic Vibes', cursive;">Podróż przez czas, zjednoczeni na zawsze.</p> <!-- Romantic font applied to the last sentence -->
             <button onclick="addToCalendar()">Dodaj do Google Calendar</button>
             <button onclick="openWeddingWebsite()">Nasza strona ślubna</button>
             <button onclick="confirmPresence()">Potwierdź obecność</button>
