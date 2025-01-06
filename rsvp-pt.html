@@ -1,71 +1,181 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP - André & Agata's Wedding</title>
+    <title>Agata & André - Casamento de Agata e André</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #333;
             margin: 0;
             padding: 0;
-            background: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         header {
             text-align: center;
-            padding: 2rem 0;
-            background: #f4f4f4;
-            border-bottom: 2px solid #e8e8e8;
+            padding: 0rem 0;
+            background: #f9f9f9;
+            background-size: cover;
+            flex-shrink: 0;
         }
-        h1 {
+        header h1 {
             font-family: 'Great Vibes', cursive;
-            color: #a18cd1;
+            font-size: 3.5rem;
+            color: #444;
+            margin: 0;
+        }
+        header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 0.5rem;
+            margin: 0.8rem 0 1.5rem; /* Added margin to separate title and menu */
+        }
+        nav {
+            text-align: center;
+            margin: 1rem 0;
+            flex-shrink: 0;
+            display: none;
+            flex-direction: column;
+            background: #f9f9f9;
+            padding: 1rem;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #ddd;
+        }
+        nav a {
+            margin: 0.5rem 1.5rem;
+            text-decoration: none;
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            color: #F2C94C;
+            border-bottom: 2px solid #333;
+        }
+        .form-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
         }
         form {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background: white;
+            max-width: 400px;
+            width: 100%;
+            padding: 1rem;
+            background: #f9f9f9;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
         }
         input, textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.5rem;
             margin-bottom: 1rem;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1rem;
         }
         button {
-            background: #a18cd1;
-            color: white;
+            background: #F2C94C;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
             border: none;
-            padding: 0.8rem 1.5rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background 0.3s;
+            font-weight: bold;
         }
         button:hover {
-            background: #7e69a2;
+            background: #e5b935;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #f9f9f9;
+            color: #777;
+            border-top: 1px solid #e8e8e8;
+        }
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                background: #f9f9f9;
+                padding: 0.5rem;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+        }
+        @media (min-width: 601px) {
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .menu-toggle {
+                display: none;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </head>
 <body>
     <header>
-        <h1>RSVP</h1>
+        <h1>Agata & André</h1>
+        <h2>Deixe-nos saber se você virá no nosso dia especial!</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
-        <button type="submit">Submit</button>
-    </form>
+    <nav>
+        <a href="index-pt.html">Início</a>
+        <a href="gallery-pt.html">Galeria</a>
+        <a href="party-pt.html">Festa de Casamento</a>        
+    </nav>
+    <div class="form-container">
+        <form action="https://formspree.io/f/mdkkpzbq" method="POST">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="guests">Número de Convidados</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+
+            <label for="message">Mensagem (Opcional)</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 Agata & André. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
