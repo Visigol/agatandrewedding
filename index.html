@@ -16,11 +16,12 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Prevent scrolling on the body */
         }
         header {
             text-align: center;
             padding: 0rem 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: #fff; /* No transparency */
             flex-shrink: 0;
         }
         header h1 {
@@ -40,13 +41,14 @@
             margin: 1rem 0;
             display: none;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.8);
+            background: #fff; /* No transparency */
             padding: 1rem;
             position: absolute;
             top: 60px;
             left: 0;
             right: 0;
             border-top: 1px solid #ddd;
+            z-index: 1000;
         }
         nav a {
             margin: 0.5rem 1.5rem;
@@ -97,7 +99,7 @@
         footer {
             text-align: center;
             padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: #fff; /* No transparency */
             color: #777;
             flex-shrink: 0;
         }
@@ -154,7 +156,7 @@
                 align-items: center;
                 font-size: 1.5rem;
                 cursor: pointer;
-                background: rgba(255, 255, 255, 0.8);
+                background: #fff;
                 padding: 0.5rem;
                 border: 1px solid #ddd;
                 border-radius: 5px;
