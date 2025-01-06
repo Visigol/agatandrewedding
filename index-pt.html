@@ -1,28 +1,27 @@
-### Portuguese Version (index-pt.html)
-
-```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casamento de Agata e André</title>
+    <title>Casamento Agata & André</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: #fff;
+            background: url('background-image9.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
             color: #333;
             margin: 0;
             padding: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Impede o scroll no body */
         }
         header {
             text-align: center;
             padding: 0rem 0;
-            background: #f9f9f9;
-            background-size: cover;
+            background: #fff; /* Sem transparência */
             flex-shrink: 0;
         }
         header h1 {
@@ -42,13 +41,14 @@
             margin: 1rem 0;
             display: none;
             flex-direction: column;
-            background: #f9f9f9;
+            background: #fff; /* Sem transparência */
             padding: 1rem;
             position: absolute;
             top: 60px;
             left: 0;
             right: 0;
             border-top: 1px solid #ddd;
+            z-index: 1000;
         }
         nav a {
             margin: 0.5rem 1.5rem;
@@ -88,7 +88,8 @@
             text-align: center;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem; /* Aumentando o espaçamento */
+            margin-bottom: 1rem; /* Adicionando espaçamento abaixo das bandeiras */
         }
         .language-switch img {
             width: 30px;
@@ -98,14 +99,14 @@
         footer {
             text-align: center;
             padding: 1rem 0;
-            background: #f9f9f9;
+            background: #fff; /* Sem transparência */
             color: #777;
             flex-shrink: 0;
         }
         .mute-icon {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 2rem; /* Ajustado para evitar sobreposição */
+            right: 2rem;
             width: 30px;
             height: 30px;
             cursor: pointer;
@@ -125,6 +126,12 @@
             color: white;
             font-size: 1.5rem;
             flex-direction: column;
+            padding: 1rem;
+            text-align: center; /* Garantir o alinhamento correto */
+        }
+        .modal p {
+            text-align: center;
+            margin: 0; /* Centraliza o texto do modal */
         }
         .modal button {
             margin-top: 20px;
@@ -137,15 +144,19 @@
             color: #333;
         }
 
-        /* Responsive styles */
+        /* Estilos responsivos */
         @media (max-width: 600px) {
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
             .menu-toggle {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 1.5rem;
                 cursor: pointer;
-                background: #f9f9f9;
+                background: #fff;
                 padding: 0.5rem;
                 border: 1px solid #ddd;
                 border-radius: 5px;
@@ -154,8 +165,8 @@
                 max-width: 50%;
             }
             .language-switch {
-                margin-top: 0.5rem;
-                flex-direction: column;
+                flex-direction: row; /* Layout horizontal */
+                gap: 0.8rem; /* Espaçamento ligeiramente menor para o mobile */
             }
         }
 
@@ -204,31 +215,32 @@
         <button>Entrar</button>
     </div>
     <header>
-        <h1>Agata e André</h1>
-        <h2>Junte-se a nós neste dia especial</h2>
+        <h1>Agata & André</h1>
+        <h2>Junte-se a nós no nosso dia especial</h2>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
     <nav>
-        <a href="index-pt.html">Página Inicial</a>
-        <a href="gallery-pt.html">Galeria</a>
-        <a href="party-pt.html">Festa de Casamento</a>
-        <a href="rsvp-pt.html">Confirmar Presença</a>
+        <a href="index.html">Início</a>
+        <a href="gallery.html">Galeria</a>
+        <a href="party.html">Festa de Casamento</a>
+        <a href="rsvp.html">Confirmar Presença</a>
+        <a href="wedding_invitation.html">Convite</a>
     </nav>
     <div class="language-switch">
-        <a href="index.html"><img src="icons/english-flag.png" alt="English"></a>
-        <a href="index-pl.html"><img src="icons/polish-flag.png" alt="Polish"></a>
+        <a href="index.html"><img src="icons/english-flag.png" alt="Inglês"></a>
+        <a href="index-pl.html"><img src="icons/porlish-flag.png" alt="Polish"></a>
     </div>
     <div class="hero">
         <img src="photo11.jpg" alt="Agata e André">
-        <p>Junte-se a nós para a celebração do casamento em 24 de abril de 2025</p>
+        <p>Junte-se a nós para a nossa celebração de casamento no dia 24 de abril de 2025</p>
     </div>
     <audio autoplay loop>
         <source src="audio/wedding-song.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-    <img class="mute-icon" src="icons/unmute.png" alt="Mute/Unmute">
+    <img class="mute-icon" src="icons/unmute.png" alt="Ativar/Desativar som">
     <footer>
-        <p>&copy; 2025 Agata e André. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Agata & André. Todos os Direitos Reservados.</p>
     </footer>
 </body>
 </html>
