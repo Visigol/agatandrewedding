@@ -74,12 +74,21 @@
             margin-bottom: 1rem;
             color: #444;
         }
-        iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
-            border: none;
+        .upload-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #F2C94C;
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .upload-button:hover {
+            background-color: #e2b800;
         }
         footer {
             text-align: center;
@@ -137,8 +146,10 @@
     </nav>
     <div class="gallery">
         <h3>Thank you for coming to our wedding!</h3>
-        <p>We would love to see the moments you captured. Please upload your photos below:</p>
-        <iframe src="https://www.dropbox.com/request/wRGT7AkhSH7FxxNp6zcw?embedded=true" allowfullscreen></iframe>
+        <p>We would love to see the moments you captured.<br>Please click the button below to upload your photos:</p>
+        <a href="https://www.dropbox.com/request/wRGT7AkhSH7FxxNp6zcw" target="_blank" class="upload-button">
+            📷 Upload Wedding Photos
+        </a>
     </div>
     <footer>
         <p>&copy; 2025 Agata & André. All Rights Reserved.</p>
