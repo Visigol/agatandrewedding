@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria - Casamento de Agata e André</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enviar Fotos – Casamento de Agata e André</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -67,25 +67,38 @@
             flex-grow: 1;
             overflow-y: auto;
             padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            text-align: center;
         }
-        .gallery img {
-            width: 100%;
+        .gallery h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        .upload-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #F2C94C;
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .upload-button:hover {
+            background-color: #e2b800;
         }
         footer {
             text-align: center;
-            padding: 0rem 0;
+            padding: 0.5rem 0;
             background: #f9f9f9;
             color: #777;
             border-top: 0px solid #e8e8e8;
             flex-shrink: 0;
         }
 
-        /* Responsive styles */
         @media (max-width: 600px) {
             .menu-toggle {
                 display: flex;
@@ -114,32 +127,11 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-
-        menuToggle.addEventListener('click', () => {
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
             nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        const gallery = document.querySelector('.gallery');
-        gallery.innerHTML = ''; // Clear any initial content
-
-        const response = await fetch('photos/photos.json'); // Fetch the photos JSON file
-        let photos = await response.json();
-
-        // Sort photos in ascending order
-        photos.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
-
-        // Render sorted photos
-        photos.forEach(photo => {
-            const img = document.createElement('img');
-            img.src = `photos/${photo}`;
-            img.alt = 'Wedding Photo';
-            gallery.appendChild(img);
-        });
-    });
-</script>
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -153,14 +145,18 @@
         <a href="rsvp-pt.html">Confirmar Presença</a>
     </nav>
     <div class="gallery">
-        <!-- As fotos serão carregadas dinamicamente aqui -->
+        <h3>Obrigado por ter vindo ao nosso casamento!</h3>
+        <p>Gostaríamos muito de ver os momentos que capturaste.<br>Clica no botão abaixo para enviar as tuas fotos:</p>
+        <a href="https://www.dropbox.com/request/wRGT7AkhSH7FxxNp6zcw" target="_blank" class="upload-button">
+            📷 Enviar Fotos do Casamento
+        </a>
     </div>
     <footer>
         <p>&copy; 2025 Agata & André. Todos os direitos reservados.</p>
     </footer>
 
     <div class="flags">
-        <div class="flag flag-english" onclick="window.location.href = 'https://visigol.github.io/agatandrewedding/gallery-en.html';"></div>
+        <div class="flag flag-english" onclick="window.location.href = 'https://visigol.github.io/agatandrewedding/gallery.html';"></div>
         <div class="flag flag-polish" onclick="window.location.href = 'https://visigol.github.io/agatandrewedding/gallery-pl.html';"></div>
     </div>
 </body>
